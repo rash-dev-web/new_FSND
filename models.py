@@ -3,15 +3,17 @@ from sqlalchemy import Column, String, Integer, create_engine, DateTime
 from flask_sqlalchemy import SQLAlchemy
 import json
 from dotenv import dotenv_values
+from config import Config
 
 config = dotenv_values()
 database_name = config["DBNAME"]
-database_path = "postgresql://{}:{}@{}/{}".format(
-    config["USERNAME"],
-    config["PASSWORD"],
-    config["HOSTNAME"] + ":" + config["PORT"],
-    database_name,
-)
+database_path = Config.database_url
+# database_path = "postgresql://{}:{}@{}/{}".format(
+#     config["USERNAME"],
+#     config["PASSWORD"],
+#     config["HOSTNAME"] + ":" + config["PORT"],
+#     database_name,
+# )
 
 db = SQLAlchemy()
 

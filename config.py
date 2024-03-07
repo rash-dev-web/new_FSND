@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+class Config:
+    database_url=os.getenv("DATABASE_URL")
+
 class Testing:
     cast_assistant_token=os.getenv("cast_assistant_token")
     cast_director_token=os.getenv("cast_director_token")
