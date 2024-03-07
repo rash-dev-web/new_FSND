@@ -6,7 +6,7 @@ from dotenv import dotenv_values
 from config import Config
 
 config = dotenv_values()
-database_name = config["DBNAME"]
+# database_name = config["DBNAME"]
 database_path = Config.database_url
 # database_path = "postgresql://{}:{}@{}/{}".format(
 #     config["USERNAME"],
