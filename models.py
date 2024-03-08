@@ -6,14 +6,8 @@ from dotenv import dotenv_values
 from config import Config
 
 config = dotenv_values()
-# database_name = config["DBNAME"]
 database_path = Config.database_url
-# database_path = "postgresql://{}:{}@{}/{}".format(
-#     config["USERNAME"],
-#     config["PASSWORD"],
-#     config["HOSTNAME"] + ":" + config["PORT"],
-#     database_name,
-# )
+
 
 db = SQLAlchemy()
 
@@ -45,7 +39,7 @@ class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     release_date = db.Column(db.DateTime)
-    
+
     def __init__(self, title, release_date):
         self.type = type
         self.title = title
@@ -63,11 +57,7 @@ class Movie(db.Model):
         db.session.commit()
 
     def format(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "release_date": self.release_date
-        }
+        return {"id": self.id, "title": self.title, "release_date": self.release_date}
 
 
 """
@@ -102,4 +92,9 @@ class Actor(db.Model):
         db.session.commit()
 
     def format(self):
-        return {"id": self.id, "name": self.name, "age": self.age, "gender": self.gender}
+        return {
+            "id": self.id,
+            "name": self.name,
+            "age": self.age,
+            "gender": self.gender,
+        }

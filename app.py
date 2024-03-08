@@ -4,7 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import setup_db, Actor, Movie, db
 from flask_migrate import Migrate
-# from models import 
+
+# from models import
 from auth import AuthError, requires_auth
 
 
@@ -210,13 +211,13 @@ def create_app(test_config=None):
             ),
             500,
         )
-    
+
     @app.errorhandler(AuthError)
     def auth_error(e):
         return (
-        jsonify({"success": False, "error": e.status_code, "message": e.error}),
-        e.status_code,
-    )
+            jsonify({"success": False, "error": e.status_code, "message": e.error}),
+            e.status_code,
+        )
 
     return app
 

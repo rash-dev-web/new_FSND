@@ -10,6 +10,7 @@ AUTH0_DOMAIN = "fsnd721.us.auth0.com"
 ALGORITHMS = ["RS256"]
 API_AUDIENCE = "capstone"
 
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
