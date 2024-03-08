@@ -5,8 +5,8 @@ load_dotenv()
 
 class Config:
     database_url=os.getenv("DATABASE_URL")
-    if database_url.startswith('postgres://'):
-        DATABASE_URL = database_url.replace('postgres://', 'postgresql://', 1)
+    # if database_url.startswith('postgres://'):
+    #     DATABASE_URL = database_url.replace('postgres://', 'postgresql://', 1)
 
 class Testing:
     cast_assistant_token=os.getenv("cast_assistant_token")
